@@ -8,11 +8,25 @@ const saveButtonAula = document.getElementById("saveIdAula");
 const cardFormId = document.getElementById("cardFormId");
 const cardFormIdAula = document.getElementById("cardFormIdAula");
 
-appDiv.innerHTML = disciplinas
-  .map(it => {
-    return `<option>${it}</option>`;
-  })
-  .join();
+var example_array = {
+  ValueA: "Text A",
+  ValueB: "Text B",
+  ValueC: "Text C"
+};
+
+var select = document.getElementById("selectDisc");
+for (index in example_array) {
+  select.options[select.options.length] = new Option(
+    example_array[index],
+    index
+  );
+}
+
+//appDiv.innerHTML = disciplinas
+//.map(it => {
+//   return `<option>${it}</option>`;
+// })
+// .join();
 
 document.getElementById("buttonProfessor").onclick = () => {
   cardFormId.hidden = !cardFormId.hidden;
@@ -90,7 +104,7 @@ function showTableAula() {
       return `
       <tr>
     <td>${it.fprofessor}</td>
-    <td>${it.fdisciplina}</td>
+    <td>${it.selectDisc}</td>
     <td>${it.falunos}</td>
     </tr>
     `;

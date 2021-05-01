@@ -63,10 +63,6 @@ saveButtonAula.onclick = () => {
 function showTable() {
   const table = document.getElementById("tableId");
 
-  if (professores.length === 0) {
-    table.innerHTML = "Aulas não cadastradas";
-  }
-
   table.innerHTML = `
     <tr>
     <th>ID</th>
@@ -91,15 +87,15 @@ function showTable() {
 }
 
 function showTableAula() {
-  const table = document.getElementById("tableIdAula");
+  const tableAula = document.getElementById("tableIdAula");
 
-  table.innerHTML = `
+  tableAula.innerHTML = `
     <tr>
       <th>Professor</th>
     <th>Disciplina</th>
     <th>Alunos</th>
   </tr>`;
-  table.innerHTML += aulas
+  tableAula.innerHTML += aulas
     .map(it => {
       return `
       <tr>

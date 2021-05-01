@@ -1,145 +1,72 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
-<head>
-  <meta charset="UTF-8">
-  <title>Praticando JS</title>
-  <link rel="stylesheet" type="text/css" href="css/reset.css">
-  <link rel="stylesheet" type="text/css" href="css/index.css">
-
-</head>
-
-<body>
-
-  <header>
-    <div class="container">
-      <h2 class="titulo">Cadastro de aulas</h2>
-    </div>
-  </header>
-  <main>
-
-    <section class="container">
-      <h2>Lista de aulas</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Professor</th>
-            <th>Disciplina</th>
-            <th>Alunos</th>
-
-          </tr>
-
-        </thead>
-        <tbody id="tabela-aulas">
-          <tr class="aulas" id="primeiro-aulas">
-            <td class="info-id">1</td>
-            <td class="info-professor">Jose Pedro</td>
-            <td class="info-disciplina">Matematica</td>
-            <td class="info-alunos">Jean, Jose, Pedro</td>
-          </tr>
-
-          <tr class="aulas" id="primeiro-aulas">
-            <td class="info-id">2</td>
-            <td class="info-professor">Josafa</td>
-            <td class="info-disciplina">Artes</td>
-            <td class="info-alunos">Jean, Jose, Pedro</td>
-          </tr>
-
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-
-
-
-    <section class="container">
-      <h2>Lista de pessoas</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Nome</th>
-            <th>Peso(kg)</th>
-            <th>Altura(m)</th>
-            <th>Gordura Corporal(%)</th>
-            <th>IMC</th>
-          </tr>
-
-        </thead>
-        <tbody id="tabela-pacientes">
-          <tr class="paciente" id="primeiro-paciente">
-            <td class="info-nome">Paulo</td>
-            <td class="info-peso">100</td>
-            <td class="info-altura">2.00</td>
-            <td class="info-gordura">10</td>
-            <td class="info-imc">0</td>
-          </tr>
-
-          <tr class="paciente">
-            <td class="info-nome">João</td>
-            <td class="info-peso">80</td>
-            <td class="info-altura">1.72</td>
-            <td class="info-gordura">40</td>
-            <td class="info-imc">0</td>
-          </tr>
-
-          <tr class="paciente">
-            <td class="info-nome">Erica</td>
-            <td class="info-peso">54</td>
-            <td class="info-altura">1.64</td>
-            <td class="info-gordura">14</td>
-            <td class="info-imc">0</td>
-          </tr>
-
-          <tr class="paciente">
-            <td class="info-nome">Douglas</td>
-            <td class="info-peso">85</td>
-            <td class="info-altura">1.73</td>
-            <td class="info-gordura">24</td>
-            <td class="info-imc">0</td>
-          </tr>
-          <tr class="paciente">
-            <td class="info-nome">Tatiana</td>
-            <td class="info-peso">46</td>
-            <td class="info-altura">1.55</td>
-            <td class="info-gordura">19</td>
-            <td class="info-imc">0</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-  </main>
-
-  <section class="container">
-    <h2 id="titulo-form">Adicionar novo paciente</h2>
-    <ul id="mensagens-erro"></ul>
-    <form id="form-adiciona">
-      <div class="">
-        <label for="nome">Nome:</label>
-        <input id="nome" name="nome" type="text" placeholder="digite o nome do seu paciente" class="campo">
-      </div>
-      <div class="grupo">
-        <label for="peso">Peso:</label>
-        <input id="peso" name="peso" type="text" placeholder="digite o peso do seu paciente" class="campo campo-medio">
-      </div>
-      <div class="grupo">
-        <label for="altura">Altura:</label>
-        <input id="altura" name="altura" type="text" placeholder="digite a altura do seu paciente" class="campo campo-medio">
-      </div>
-      <div class="grupo">
-        <label for="gordura">% de Gordura:</label>
-        <input id="gordura" type="text" placeholder="digite a porcentagem de gordura do seu paciente" class="campo campo-medio">
-      </div>
-
-      <button id="adicionar-paciente" class="botao bto-principal">Adicionar</button>
+<label for="disciplina">Cadastro de aula:</label>
+<button id="buttonAula" type="button">Cadastro de aula</button>
+<br>
+<div class="card" id="cardFormIdAula" hidden="true">
+  <div class="card-header">
+    Inserir nova aula
+  </div>
+  <div class="card-body">
+    <form id="formId">
+      <label for="fname" class="form-label">Disciplina</label><br>
+      <input type="text" class="form-control" id="fname" name="fname"><br>
+      <label for="femail" class="form-label">Professor:</label><br>
+      <input type="text" id="femail" name="femail" class="form-control"><br>
+      <label for="fendereco" class="form-label">Endereço:</label><br>
+      <input type="text" id="fendereco" name="fendereco" class="form-control"><br>
+      <label for="ftelefone" class="form-label">Telefone:</label><br>
+      <input type="text" id="ftelefone" name="ftelefone" class="form-control"><br><br>
     </form>
-  </section>
+    <button id="saveId" class="button">Salvar</button>
+  </div>
+</div>
+<br><br>
+<table style="width:100%" id="tableId">
+</table>
 
 
-  <script src="index.js"></script>
+
+<label for="disciplinas">Disciplinas:</label>
+
+<select id="disciplinas">
+  <option value="volvo">Volvo</option>
+  <option value="saab">Saab</option>
+  <option value="mercedes">Mercedes</option>
+  <option value="audi">Audi</option>
+</select>
+
+<button id="buttonProfessor" type="button">Cadastro de professor</button>
+<br>
+<br>
+
+<div class="card" id="cardFormId" hidden="true">
+  <div class="card-header">
+    Inserir novo professor
+  </div>
+  <div class="card-body">
+    <form id="formId">
+      <label for="fname" class="form-label">Nome</label><br>
+      <input type="text" class="form-control" id="fname" name="fname"><br>
+      <label for="femail" class="form-label">E-Mail:</label><br>
+      <input type="text" id="femail" name="femail" class="form-control"><br>
+      <label for="fendereco" class="form-label">Endereço:</label><br>
+      <input type="text" id="fendereco" name="fendereco" class="form-control"><br>
+      <label for="ftelefone" class="form-label">Telefone:</label><br>
+      <input type="text" id="ftelefone" name="ftelefone" class="form-control"><br><br>
+    </form>
+    <button id="saveId" class="button">Salvar</button>
+  </div>
+</div>
+<br><br>
+<table style="width:100%" id="tableId">
+</table>
 
 
-</body>
 
-</html>
+
+
+
+
+<script src="index.js"></script>

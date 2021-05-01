@@ -1,52 +1,64 @@
-var botaoAdicionar = document.querySelector("#adicionar-paciente");
-botaoAdicionar.addEventListener("click", function(event) {
-  event.preventDefault();
+const disciplinas = ["Compiladores", "Poo", "Banco de dados"];
+const professores = [];
+const appDiv = document.getElementById("disciplinas");
+const form = document.getElementById("formId");
+const saveButton = document.getElementById("saveId");
+const cardFormId = document.getElementById("cardFormId");
+const cardFormIdAula = document.getElementById("cardFormIdAula");
 
-  var form = document.querySelector("#form-adiciona");
+appDiv.innerHTML = disciplinas
+  .map(it => {
+    return `<option>${it}</option>`;
+  })
+  .join();
 
-  var paciente = obtemPacienteDoFormulario(form);
+document.getElementById("buttonProfessor").onclick = () => {
+  cardFormId.hidden = !cardFormId.hidden;
+};
+document.getElementById("buttonAula").onclick = () => {
+  cardFormIdAula.hidden = !cardFormIdAula.hidden;
+};
 
-  adicionaPacienteNaTabela(paciente);
-
-  form.reset();
-
-  var mensagensErro = document.querySelector("#mensagens-erro");
-  mensagensErro.innerHTML = "";
-});
-
-function adicionaPacienteNaTabela(paciente) {
-  var pacienteTr = montaTr(paciente);
-  var tabela = document.querySelector("#tabela-pacientes");
-  tabela.appendChild(pacienteTr);
-}
-
-function obtemPacienteDoFormulario(form) {
-  var paciente = {
-    nome: form.nome.value,
-    peso: form.peso.value,
-    altura: form.altura.value,
-    gordura: form.gordura.value
+let idCount = 0;
+saveButton.onclick = () => {
+  const value = {
+    id: ++idCount
   };
+  for (var i = 0; i < form.elements.length; i++) {
+    const item = form.elements.item(i);
+    value[item.name] = item.value;
+  }
 
-  return paciente;
-}
+  professores.push(value);
+  showTable();
+};
 
-function montaTr(paciente) {
-  var pacienteTr = document.createElement("tr");
-  pacienteTr.classList.add("paciente");
+function showTable() {
+  const table = document.getElementById("tableId");
 
-  pacienteTr.appendChild(montaTd(paciente.nome, "info-nome"));
-  pacienteTr.appendChild(montaTd(paciente.peso, "info-peso"));
-  pacienteTr.appendChild(montaTd(paciente.altura, "info-altura"));
-  pacienteTr.appendChild(montaTd(paciente.gordura, "info-gordura"));
+  if (professores.length === 0) {
+    table.innerHTML = "Aulas não cadastradas";
+  }
 
-  return pacienteTr;
-}
-
-function montaTd(dado, classe) {
-  var td = document.createElement("td");
-  td.classList.add(classe);
-  td.textContent = dado;
-
-  return td;
+  table.innerHTML = `
+    <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>E-Mail</th>
+    <th>Endereço</th>
+    <th>Telefone</th>
+  </tr>`;
+  table.innerHTML += professores
+    .map(it => {
+      return `
+      <tr>
+    <td>${it.id}</td>
+    <td>${it.fname}</td>
+    <td>${it.femail}</td>
+    <td>${it.fendereco}</td>
+    <td>${it.ftelefone}</td>
+    </tr>
+    `;
+    })
+    .join();
 }

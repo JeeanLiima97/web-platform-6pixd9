@@ -13,10 +13,47 @@
 
   <header>
     <div class="container">
-      <h2 class="titulo">Calcular Imc</h2>
+      <h2 class="titulo">Cadastro de aulas</h2>
     </div>
   </header>
   <main>
+
+    <section class="container">
+      <h2>Lista de aulas</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Professor</th>
+            <th>Disciplina</th>
+            <th>Alunos</th>
+
+          </tr>
+
+        </thead>
+        <tbody id="tabela-aulas">
+          <tr class="aulas" id="primeiro-aulas">
+            <td class="info-id">1</td>
+            <td class="info-professor">Jose Pedro</td>
+            <td class="info-disciplina">Matematica</td>
+            <td class="info-alunos">Jean, Jose, Pedro</td>
+          </tr>
+
+          <tr class="aulas" id="primeiro-aulas">
+            <td class="info-id">2</td>
+            <td class="info-professor">Josafa</td>
+            <td class="info-disciplina">Artes</td>
+            <td class="info-alunos">Jean, Jose, Pedro</td>
+          </tr>
+
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+
+
+
     <section class="container">
       <h2>Lista de pessoas</h2>
       <table>
@@ -71,7 +108,6 @@
           </tr>
         </tbody>
       </table>
-      <button id="buscar-paciente" class="botao bto-principal">Buscar </button>
     </section>
   </main>
 
@@ -100,10 +136,9 @@
     </form>
   </section>
 
-  <script src="js/calcula-imc.js"></script>
+
   <script src="index.js"></script>
-  <script src="js/remover-paciente.js"></script>
-  <script src="js/buscar-pacientes.js"></script>
+
 
 </body>
 

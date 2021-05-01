@@ -9,9 +9,9 @@ const cardFormId = document.getElementById("cardFormId");
 const cardFormIdAula = document.getElementById("cardFormIdAula");
 
 var example_array = {
-  ValueA: "Text A",
-  ValueB: "Text B",
-  ValueC: "Text C"
+  ValueA: "POO",
+  ValueB: "Engenharia Experimental",
+  ValueC: "Ingles tecnico"
 };
 
 var select = document.getElementById("selectDisc");
@@ -104,7 +104,7 @@ function showTableAula() {
       return `
       <tr>
     <td>${it.fprofessor}</td>
-    <td>${it.selectDisc}</td>
+    <td>POO</td>
     <td>${it.falunos}</td>
     </tr>
     `;
